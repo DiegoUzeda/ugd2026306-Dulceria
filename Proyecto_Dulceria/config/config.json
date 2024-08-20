@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "BeTo2003",
+    "database": "dulceria",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "BeTo2003",
+    "database": "dulceria",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "BeTo2003",
+    "database": "dulceria",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

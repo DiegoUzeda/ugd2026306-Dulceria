@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Usuario</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/usuarios">Usuarios</a></li>
+            <li><a href="/carrito">Carrito</a></li>
+            <li><a href="/recibos">Recibos</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Detalle del Usuario</h2>
+    <p>Nombre: <%= usuario.nombre_usuario %></p>
+    <p>Email: <%= usuario.email_usuario %></p>
+    <a href="/usuarios/<%= usuario.id_usuario %>/edit">Editar</a>
+    <form action="/usuarios/<%= usuario.id_usuario %>/delete" method="POST">
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="/usuarios">Volver</a>
+</body>
+</html>

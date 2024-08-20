@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/usuarios">Usuarios</a></li>
+            <li><a href="/carrito">Carrito</a></li>
+            <li><a href="/recibos">Recibos</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Carrito de compras</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (carrito.length > 0) { %>
+                <% carrito.forEach(item => { %>
+                    <tr>
+                        <td><%= item.nombre_producto %></td>
+                        <td><%= item.cantidad %></td>
+                        <td>$<%= item.precio_producto %></td>
+                        <td>$<%= (item.precio_producto * item.cantidad).toFixed(2) %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">El carrito está vacío</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <!-- Formulario para finalizar la compra -->
+    <form action="/carrito/comprar" method="POST">
+        <div>
+            <label for="cliente">Nombre del Cliente:</label>
+            <input type="text" id="cliente" name="cliente" required>
+        </div>
+        <button type="submit">Finalizar compra</button>
+    </form>
+    <a href="/carrito">Seguir comprando</a>
+
+</body>
+</html>

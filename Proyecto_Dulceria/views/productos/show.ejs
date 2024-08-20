@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/usuarios">Usuarios</a></li>
+            <li><a href="/carrito">Carrito</a></li>
+            <li><a href="/recibos">Recibos</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Detalle del Producto</h2>
+    <p>Nombre: <%= producto.nombre_producto %></p>
+    <p>Cantidad: <%= producto.cantidad_producto %></p>
+    <p>Precio : <%= producto.precio_producto %></p>
+    <a href="/productos/<%= producto.id_producto %>/edit">Editar</a>
+    <form action="/productos/<%= producto.id_producto %>/delete" method="POST">
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="/productos">Volver</a>
+</body>
+</html>

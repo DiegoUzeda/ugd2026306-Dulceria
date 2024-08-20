@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/usuarios">Usuarios</a></li>
+            <li><a href="/carrito">Carrito</a></li>
+            <li><a href="/recibos">Recibos</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Seleccionar productos</h2>
+    <form action="/carrito/agregar" method="POST">
+        <select name="id_producto">
+            <% productos.forEach(producto => { %>
+                <option value="<%= producto.id_producto %>"><%= producto.nombre_producto %> - $<%= producto.precio_producto %></option>
+            <% }) %>
+        </select>
+        <input type="number" name="cantidad_producto" placeholder="Cantidad" min="1" required>
+        <button type="submit">Agregar al carrito</button>
+    </form>
+    <a href="/carrito/ver">Ver carrito</a>
+</body>
+</html>
