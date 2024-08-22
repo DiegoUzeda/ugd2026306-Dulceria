@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/usuarios">Usuarios</a></li>
+            <li><a href="/carrito">Carrito</a></li>
+            <li><a href="/recibos">Recibos</a></li>
+            <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Usuarios</h2>
+    <a href="/usuarios/new">Crear Usuario</a>
+    <ul>
+        <% usuarios.forEach(usuario => { %>
+            <li>
+                <a href="/usuarios/<%= usuario.id_usuario %>">
+                    <%= usuario.nombre_usuario %> (<%= usuario.email_usuario %>)
+                </a>
+                <a href="/usuarios/<%= usuario.id_usuario %>/edit">Editar</a>
+                <form action="/usuarios/<%= usuario.id_usuario %>/delete" method="POST" style="display:inline;">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h2>Login</h2>
+    <% if (messages.length) { %>
+        <ul>
+            <% messages.forEach(message => { %>
+                <li><%= message %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+    <form action="/login" method="POST">
+        <label for="email_usuario">Email:</label>
+        <input type="email" id="email_usuario" name="email_usuario" required>
+        <label for="contrasena_usuario">Contraseña:</label>
+        <input type="password" id="contrasena_usuario" name="contrasena_usuario" required>
+        <button type="submit">Login</button>
+    </form>
+    <a href="/register">Crear cuenta</a>
+</body>
+</html>
